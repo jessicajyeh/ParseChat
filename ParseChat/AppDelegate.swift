@@ -21,6 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             configuration.applicationId = "parseChatID"
             configuration.server = "https://blooming-thicket-89345.herokuapp.com/parse"
         }))
+        if let currentUser = PFUser.current() {
+            print("Welcome back \(currentUser.username!) 😀")
+                
+            // TODO: Load Chat view controller and set as root view controllerlet storyboard = UIStoryboard(name: "Main", bundle: 
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let chatViewController = storyboard.instantiateViewController(withIdentifier: "ChatViewController")
+            window?.rootViewController = chatViewController
+        }
         return true
     }
 
